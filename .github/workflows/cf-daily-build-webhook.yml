@@ -1,7 +1,6 @@
 name: Deploy Every Day
 on:
   workflow_dispatch:
-  # Commented out schedule trigger
   # schedule:
   #   - cron: "0 0 * * *"
 jobs:
