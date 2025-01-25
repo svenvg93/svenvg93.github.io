@@ -13,7 +13,7 @@ image:
   alt: Photo by Prince Adufah on Unsplash
 ---
 
-> Find a updated version of this guide in the [The Ultimate Guide to Setting Up Traefik](../ultimate-traefik-guide)
+> Find a updated version of this guide in the [The Ultimate Guide to Setting Up Traefik](../ultimate-treafik-guide)
 {: .prompt-tip }
 
 By default, Traefik uses the HTTP Challenge to obtain SSL certificates from Let’s Encrypt, verifying domain ownership via HTTP requests. However, the DNS-01 Challenge offers a more versatile alternative. It validates domain ownership through DNS records, making it ideal for securing subdomains or applications behind firewalls or NAT.

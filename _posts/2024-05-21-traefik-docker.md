@@ -14,7 +14,7 @@ image:
 mermaid: true
 ---
 
-> Find a updated version of this guide in the [The Ultimate Guide to Setting Up Traefik](../ultimate-traefik-guide)
+> Find a updated version of this guide in the [The Ultimate Guide to Setting Up Traefik](../ultimate-treafik-guide)
 {: .prompt-tip }
 
 These days, many applications are installed via containers. Traefik is a modern open-source reverse proxy and ingress controller that simplifies and secures service deployment.
