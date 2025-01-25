@@ -1,7 +1,7 @@
 ---
 title: Selfhost your website analytics with Umami
 description: Learn how to self-host your website analytics using Umami, a privacy-focused and open-source analytics platform.
-date: 2025-01-25
+date: 2025-01-29
 categories:
   - selfhosting
   - analytics
@@ -9,7 +9,7 @@ tags:
   - cloudflare
   - docker
 image:
-  path: /assets/img/headers/2025-01-24-selfhosted-web-analytics.jpg
+  path: /assets/img/headers/2025-01-29-selfhosted-web-analytics.jpg
   alt: Photo by Luke Chesser on Unsplash
 ---
 Umami is an open-source, privacy-focused web analytics tool that serves as an alternative to Google Analytics. It offers essential insights into website traffic, user behavior, and performance while prioritizing data privacy. Unlike many traditional analytics platforms, Umami does not collect or store personal data, ensuring compliance with GDPR and PECR, and eliminating the need for cookies.

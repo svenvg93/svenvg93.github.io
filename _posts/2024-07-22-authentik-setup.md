@@ -163,8 +163,6 @@ To add a new provider in Authentik, follow these steps:
 5. For the Authorization Flow, choose **explicit-content**.
 6. Finally, click Finish to complete the setup of your OpenID Connect provider.
 
-![captionless image](/assets/img/screenshots/authentik_provider.png)
-
 ## Add Application
 
 To create a new application in Authentik, follow these steps:
@@ -187,5 +185,3 @@ To use Authentik with your application, you will need the Client ID, Client Secr
 1. In the Authentik dashboard, click on Edit for the provider you just created.
 2. Here, you will find the **Client ID**, **Client Secret, URLs.**.
 3. Fill in these details in the configuration settings of your connected application (such as Auth0) to complete the integration.
-
-![captionless image](/assets/img/screenshots/authentik_app.png)
