@@ -63,8 +63,8 @@ analytics:
   goatcounter:
     id: # fill in your GoatCounter ID
   umami:
-    id: "a2fb55db-cf31-425c-90a1-797229ac450b"
-    domain: "https://cloud.umami.is"
+    id: "279d852d-f0f9-4226-8b38-bc498c77edc6"
+    domain: "https://umani.svenvg.com"
   matomo:
     id: # fill in your Matomo ID
     domain: # fill in your Matomo domain
