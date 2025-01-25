@@ -4,9 +4,9 @@ description: Learn how to self-host your website analytics using Umami, a privac
 date: 2025-01-25
 categories:
   - selfhosting
-  - network
+  - analytics
 tags:
-  - tailscale
+  - cloudflare
   - docker
 image:
   path: /assets/img/headers/2025-01-24-selfhosted-web-analytics.jpg
@@ -122,7 +122,7 @@ Now we need to add Authentik to the Cloudflare Tunnel on the Zero Trust page to 
 
 Now we need to add the website we want to analyze to Unami.
 
-1. Log into Umami and click on **Settings** in the header.
+1. Log into Umami (default login is `admin/umami`) and click on **Settings** in the header.
 2. Navigate to **Websites** and click the **Add Website** button.
 3. Fill out the form with the following details and click **Save**:
    - The **Name** field can be anything you prefer, but it's typically the same as your domain name.
@@ -130,6 +130,9 @@ Now we need to add the website we want to analyze to Unami.
 4. Once the website is added, you’ll need the **Website ID** to link it to the site you want to track.
 5. Click on **Edit** next to the website you just created.
 6. Copy the **Website ID** for use in your tracking setup.
+
+> Don't forget to change the username and password, as this website will be accesible for everyone
+{: .prompt-tip }
 
 ## Add the Website ID to Your Website
 
@@ -141,7 +144,8 @@ Fill in your own data into `_config.yml` to integrate Umami analytics.
 ```yaml
 umami:
   id: "19e0f843-ddd1-4841-b112-e21f6a750770" # fill in your Umami ID
-  domain: "https://t.pavelp.cz"              # fill in your Umami domain
+  domain: "https://umami.yourdomain.com"     # fill in your Umami domain
 ```
 
-Ensure `JEKYLL_ENV=production` environment variable is set when running jekyll build to apply production specific features such as web analytics.
+> Ensure `JEKYLL_ENV=production` environment variable is set when running jekyll build to apply production specific features such as web analytics.
+{: .prompt-tip }
