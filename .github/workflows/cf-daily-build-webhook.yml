@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Use curl to send webhook
         run: |
-          curl -X POST "${{ secrets.CLOUDFLARE_WEBHOOK }}"
+          curl -X POST ${{ secrets.CLOUDFLARE_WEBHOOK }}
