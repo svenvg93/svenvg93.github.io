@@ -34,7 +34,6 @@ nano umami/docker-compose.yml
 Paste the following content into the file:
 ```yaml
 services:
-  # This config is specific to umami
   umami:
     image: ghcr.io/umami-software/umami:postgresql-latest
     container_name: umami
@@ -49,7 +48,6 @@ services:
     depends_on:
       umami-postgresql:
         condition: service_healthy
-  # This config is specific to lscr.io/mariadb
   umami-postgresql:
     image: postgres:15-alpine
     container_name: umami-postgresql
@@ -62,13 +60,13 @@ services:
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U umami -d umami"]
-      interval: 5s
+      interval: 60s
       timeout: 5s
 
 volumes:
   umami-postgresql-db:
 ```
-
+{: file='docker-compose.yml'}
 
 ### Generate and Store the App Secret
 
@@ -90,7 +88,7 @@ Paste the following content into the file:
 ```shell
 UMAMI_SECRET=grYw1gf2CurwJqgyuVCJD9A9xa7pDKzvA1kmzDry
 ```
-
+{: file='.env'}
 ### Start Umami Analytics
 
 Finally, start the Umami services by running the following commands:
@@ -120,7 +118,7 @@ Now we need to add Authentik to the Cloudflare Tunnel on the Zero Trust page to 
 
 ## Add a website
 
-Now we need to add the website we want to analyze to Unami.
+Now we need to add the website we want to analyze to Umami.
 
 1. Log into Umami (default login is `admin/umami`) and click on **Settings** in the header.
 2. Navigate to **Websites** and click the **Add Website** button.
@@ -146,6 +144,6 @@ umami:
   id: "19e0f843-ddd1-4841-b112-e21f6a750770" # fill in your Umami ID
   domain: "https://umami.yourdomain.com"     # fill in your Umami domain
 ```
-
+{: file='_config.yml'}
 > Ensure `JEKYLL_ENV=production` environment variable is set when running jekyll build to apply production specific features such as web analytics.
 {: .prompt-tip }

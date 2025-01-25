@@ -161,5 +161,5 @@ jobs:
           command: {% raw %}pages deploy _site --project-name=${{ secrets.CLOUDFLARE_PROJECT }}{% endraw %}
           gitHubToken: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
-
+{: file='pages-deployment.yaml'}
 Now, every day at 09:00 UTC, Cloudflare is triggered to rebuild and republish the website. Before publishing, the site is built and thoroughly tested for any broken links to ensure everything is working as expected.

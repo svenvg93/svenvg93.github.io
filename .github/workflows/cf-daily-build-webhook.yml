@@ -1,0 +1,13 @@
+name: Deploy Every Day
+on:
+  workflow_dispatch:
+ # schedule:
+ #   - cron: "0 0 * * *"
+jobs:
+  webhook:
+    name: Sent Webhook Trigger
+    runs-on: ubuntu-latest
+      steps:
+        - name: Use curl to send webhook
+          run: |
+            curl -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/b92c8fbe-f29f-428d-8126-e20bd8d9b301"
