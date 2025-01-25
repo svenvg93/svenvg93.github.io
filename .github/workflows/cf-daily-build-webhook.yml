@@ -1,8 +1,9 @@
-name: Deploy Every Day
+name: Daily build Cloudflare Pages
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: "0 0 * * *"
+  schedule:
+    - cron: "0 9 * * *"
+
 jobs:
   webhook:
     name: Sent Webhook Trigger
@@ -10,4 +11,4 @@ jobs:
     steps:
       - name: Use curl to send webhook
         run: |
-          curl -X POST "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/b92c8fbe-f29f-428d-8126-e20bd8d9b301"
+          curl -X POST "${{ secrets.CLOUDFLARE_WEBHOOK }}"
