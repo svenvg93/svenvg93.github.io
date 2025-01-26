@@ -101,7 +101,7 @@ docker compose -f umami/docker-compose.yml up -d
 
 > Setting up the Cloudflare tunnel is out of scope for this post. Check out this [post](../cloudflare-tunnel) if you want to know how to set it up.
 
-Now we need to add Authentik to the Cloudflare Tunnel on the Zero Trust page to ensure it can be accessed securely.
+Now we need to add Umami to the Cloudflare Tunnel on the Zero Trust page to ensure it can be accessed securely.
 
 1. Go to the Networks -> Tunnels page in your Cloudflare dashboard.
 2. Click on the Tunnel you want to add Umami to.
@@ -129,12 +129,12 @@ Now we need to add the website we want to analyze to Umami.
 5. Click on **Edit** next to the website you just created.
 6. Copy the **Website ID** for use in your tracking setup.
 
-> Don't forget to change the username and password, as this website will be accesible for everyone
+> Don't forget to change the username and password, as this website will be accessible for everyone
 {: .prompt-tip }
 
 ## Add the Website ID to Your Website
 
-Now you can add the Website ID to your website, according to their instructions. In this example we add to a [Jekyll blog with the Chripy theme](../jekyll-cf-pages).
+Now you can add the Website ID to your website, according to their instructions. In this example we add it to a [Jekyll blog with the Chripy theme](../jekyll-cf-pages).
 
 Fill in your own data into `_config.yml` to integrate Umami analytics.
 (search for umami in config file)
