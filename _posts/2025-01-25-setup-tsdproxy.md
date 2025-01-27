@@ -103,29 +103,23 @@ Paste the following content into the file:
 ```yaml
 defaultproxyprovider: default
 docker:
-    local:
-        host: unix:///var/run/docker.sock
-        defaultproxyprovider: default
-files:
-  external:
-    filename: ""
-    defaultProxyProvider: default
-    defaultProxyAccessLog: false
+  local:
+    host: unix:///var/run/docker.sock
+    defaultproxyprovider: default
 tailscale:
-    providers:
-        default:
-            authkey: ""
-            authkeyfile: "/config/authkey"
-            controlurl: https://controlplane.tailscale.com
-    datadir: /data/
+  providers:
+    default:
+      authkey: ""
+      authkeyfile: "/config/authkey"
+      controlurl: https://controlplane.tailscale.com
+  datadir: /data/
 http:
-    hostname: 0.0.0.0
-    port: 8080
+  hostname: 0.0.0.0
+  port: 8080
 log:
-    level: info
-    json: false
+  level: info
+  json: false
 proxyaccesslog: true
-
 ```
 {: file='tsdproxy.yaml'}
 
