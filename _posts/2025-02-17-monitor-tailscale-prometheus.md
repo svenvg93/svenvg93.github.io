@@ -1,7 +1,7 @@
 ---
 title: Monitoring Tailscale clients with Prometheus
 description: Learn how to track Tailscale traffic using Prometheus for real-time insights into your secure network.
-date: 2025-02-06
+date: 2025-02-17
 categories: 
   - tailscale
   - monitoring
@@ -9,7 +9,7 @@ tags:
   - tailscale
   - docker
 image:
-  path: /assets/img/headers/2025-02-06-monitor-tailscale-prometheus.jpg
+  path: /assets/img/headers/2025-02-17-monitor-tailscale-prometheus.jpg
   alt: Photo by Jack B on Unsplash
 ---
 Tailscale makes secure networking easy, but how do you monitor its performance? In this guide, we’ll set up Prometheus to collect key Tailscale metrics and gain insights into your mesh VPN connections. Learn how to track bandwidth usage and ensure your network is running smoothly—all with open-source monitoring tools! 🚀
@@ -97,4 +97,6 @@ scrape_configs:
 ## Grafana Dashboard
 
 Now that Prometheus is scraping all the metrics. We can use Grafana to display them. All the tailscale metrics are starting with `tailscaled_*`. 
-Or you can import this dashboard PASTE LINK HERE.
+Or you can import this (dashboard)[https://github.com/svenvg93/Grafana-Dashboard/tree/master/tailscale].
+
+![captionless image](assets/img/screenshots/grafana/tailscale_dashoard.png)
