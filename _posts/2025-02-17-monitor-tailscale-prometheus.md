@@ -97,6 +97,6 @@ scrape_configs:
 ## Grafana Dashboard
 
 Now that Prometheus is scraping all the metrics. We can use Grafana to display them. All the tailscale metrics are starting with `tailscaled_*`. 
-Or you can import this (dashboard)[https://github.com/svenvg93/Grafana-Dashboard/tree/master/tailscale].
+Or you can import this [dashboard](https://github.com/svenvg93/Grafana-Dashboard/tree/master/tailscale).
 
 ![captionless image](assets/img/screenshots/grafana/tailscale_dashoard.png)
