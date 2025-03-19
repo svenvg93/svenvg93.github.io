@@ -2,10 +2,12 @@
 title:
 description:
 date:
-categories: 
+categories:
   -
-tags: 
+tags:
   -
 image:
-  path: /assets/img/headers/*.jpeg
+  path: /assets/img/headers/.jpg
+  alt:
 ---
+
