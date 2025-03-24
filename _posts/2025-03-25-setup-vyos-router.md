@@ -1,14 +1,14 @@
 ---
 title: Setting up VyOS router for your home network
 description: Setting up a VyOS router for your homelab gives you enterprise-grade networking with open-source flexibility.
-date: 2025-03-19
+date: 2025-03-25
 categories:
   - homelab
   - network
 tags: 
   - vyos
 image:
-  path: /assets/img/headers/2025-03-19-setup-vyos-router.jpg
+  path: /assets/img/headers/2025-03-25-setup-vyos-router.jpg
   alt: Photo by Patrick Turner on Unsplash
 ---
 
@@ -29,7 +29,7 @@ After you [download](https://github.com/vyos/vyos-nightly-build/releases) the la
 
 Once the image loads, log in with the default credentials (`vyos/vyos`). In operational mode, run `install image` and follow the wizard. It will guide you through partitioning the disk and configuring the root password. After installation, remove the live USB or CD and reboot the system.
 
-## Configuration
+## Operational modes
 
 VyOS has two main operational modes: Operational Mode and Configuration Mode. Understanding these modes is key to managing and configuring the system effectively.
 
@@ -42,17 +42,16 @@ We need to enter configuration mode to configure our initial setup.
 configure
 ```
 
-### LAN
+## LAN
 
 We’ll configure the LAN ports to establish a network connection for all your devices. This will ensure that both your homelab and internet access are set up properly, providing seamless connectivity throughout your network.
 
-#### Bridge Interface
+### Bridge Interface
 
 We’ll create a bridge interface, allowing us to combine all the ports into a single network. This will enable seamless communication between all your devices on the same network.
 
 
 ```shell
-configure
 set interfaces bridge br0 
 set interfaces bridge br0 description LAN bridge
 set interfaces bridge br0 address 192.168.1.1/24
@@ -74,12 +73,11 @@ br0              192.168.1.1/24                    u/u
 
 > When in Configuration Mode, you normally can't run operational commands like `show`. However, you can use `run` before the command to execute it without leaving Configuration Mode.
 
-#### DHCP
+### DHCP
 
 Now, we’ll set up a DHCP server to automatically assign IP addresses to all the devices connected to your network.
 
 ```shell
-configure
 set service dhcp-server shared-network-name LAN authoritative
 set service dhcp-server shared-network-name LAN subnet 192.168.1.0/24 lease 86400
 set service dhcp-server shared-network-name LAN subnet 192.168.1.0/24 option default-router 192.168.1.1
@@ -102,51 +100,51 @@ IP Address     MAC address        State    Lease start                Lease expi
 
 
 
-### WAN
+## WAN
 
 As a next step we will configure our WAN internet connection. As we need this interface for the next steps we will configure it first. 
 In my case I use a VLAN (vif) interface with DHCP, as it is required by my ISP. 
 
-#### DHCP with VLAN
+### DHCP with VLAN
 ```shell
 set interfaces ethernet [YOUR_ETHERNET_INTERFACE] vif [VLAN_ID] address dhcp
-set interfaces ethernet [YOUR_ETHERNET_INTERFACE] vif [VLAN_ID] description WAN Interface
+set interfaces ethernet [YOUR_ETHERNET_INTERFACE] vif [VLAN_ID] description WAN-Interface
 commit; save
 ```
 
-#### DHCP
+### DHCP
 ```shell
 set interfaces ethernet eth1 address dhcp
-set interfaces ethernet eth1 description WAN Interface
+set interfaces ethernet eth1 description WAN-Interface
 commit; save
 ```
 
-#### PPPoE with VLAN
+### PPPoE with VLAN
 ```shell
-set interfaces ethernet [YOUR_ETHERNET_INTERFACE] vif [VLAN_ID] description WAN Interface
+set interfaces ethernet [YOUR_ETHERNET_INTERFACE] vif [VLAN_ID] description WAN-Interface
 set interfaces pppoe pppoe0 authentication username [YOUR_USERNAME]
 set interfaces pppoe pppoe0 authentication password [YOUR_PASSWORD]
 set interfaces pppoe pppoe0 source-interface [YOUR_ETHERNET_INTERFACE].[VLAN_ID]
 set interfaces pppoe pppoe0 default-route auto
 set interfaces pppoe pppoe0 mtu 1492
-set interfaces pppoe pppoe0 description WAN Interface
+set interfaces pppoe pppoe0 description WAN-Interface
 commit;save
 ``` 
 
-#### PPPoE
+### PPPoE
 ```shell
 set interfaces pppoe pppoe0 authentication username [YOUR_USERNAME]
 set interfaces pppoe pppoe0 authentication password [YOUR_PASSWORD]
 set interfaces pppoe pppoe0 source-interface [YOUR_ETHERNET_INTERFACE]
 set interfaces pppoe pppoe0 default-route auto
 set interfaces pppoe pppoe0 mtu 1492
-set interfaces pppoe pppoe0 description WAN Interface
+set interfaces pppoe pppoe0 description WAN-Interface
 commit; save
 ```
 
-#### Static IP
+### Static IP
 ```shell
-set interfaces ethernet [YOUR_ETHERNET_INTERFACE] description WAN Interface
+set interfaces ethernet [YOUR_ETHERNET_INTERFACE] description WAN-Interface
 set interfaces ethernet [YOUR_ETHERNET_INTERFACE] address [YOUR_STATIC_IP]/[PREFIX_LENGTH]
 set interfaces ethernet [YOUR_ETHERNET_INTERFACE] mtu 1500
 set protocols static route 0.0.0.0/0 next-hop [YOUR_GATEWAY_IP]
@@ -174,17 +172,15 @@ C>* 192.168.1.0/24 is directly connected, br0, weight 1, 00:07:15
 L>* 192.168.1.1/32 is directly connected, br0, weight 1, 00:07:15
 ```
 
-### Firewall
+## Firewall
 
 In VyOS (and most firewall systems using Netfilter/iptables), traffic filtering is managed through three main chains: INPUT, OUTPUT, and FORWARD. Understanding these chains is crucial for configuring firewall rules effectively.
 
-#### Input Chain
+### Input Chain
 
 This controls incoming traffic destined for the VyOS router itself. For example, SSH access to the router or web management interfaces would be filtered by the INPUT chain.
 
 ```shell
-configure
-set firewall ipv4 input filter default-action drop
 set firewall ipv4 input filter rule 10 action 'accept'
 set firewall ipv4 input filter rule 10 state 'established'
 set firewall ipv4 input filter rule 10 state 'related'
@@ -193,10 +189,11 @@ set firewall ipv4 input filter rule 10 description 'Allow Return traffic destine
 set firewall ipv4 input filter rule 1000 action 'accept'
 set firewall ipv4 input filter rule 1000 description 'Allow all traffic from LAN interface'
 set firewall ipv4 input filter rule 1000 inbound-interface name br0
+set firewall ipv4 input filter default-action drop
 commit; save
 ```
 
-#### Output Chain
+### Output Chain
 
 This manages traffic originating from the VyOS router. If the router itself makes outbound requests (such as NTP synchronization or software updates), they are processed through the OUTPUT chain.
 
@@ -204,12 +201,12 @@ This manages traffic originating from the VyOS router. If the router itself make
 set firewall ipv4 output filter default-action accept 
 commit; save
 ```
-#### Forward Chain
+
+### Forward Chain
 
 This handles traffic passing through the router but not directed to or from it. If VyOS is acting as a router between networks, the FORWARD chain determines which packets are allowed to pass between them.
 
 ```shell
-set firewall ipv4 forward filter default-action drop
 set firewall ipv4 forward filter rule 20 action 'accept'
 set firewall ipv4 forward filter rule 20 description 'Allow Return traffic through the router'
 set firewall ipv4 forward filter rule 20 state 'established'
@@ -218,10 +215,11 @@ set firewall ipv4 forward filter rule 20 inbound-interface name [YOUR_INTERFACE]
 set firewall ipv4 forward filter rule 1000 action 'accept'
 set firewall ipv4 forward filter rule 1000 description 'Allow all traffic from LAN interface'
 set firewall ipv4 forward filter rule 1000 inbound-interface name br0
+set firewall ipv4 forward filter default-action drop
 commit; save
 ```
 
-### DNS
+## DNS
 
 By default, VyOS doesn't function as a DNS proxy. To enable DNS forwarding from client devices to your upstream DNS servers, you'll need to configure the following settings:
 
@@ -242,19 +240,19 @@ This configuration:
 
 > Remember to replace [YOUR_UPSTREAM_DNS_SERVER] with the actual IP address of your preferred DNS server.
 
-### NAT
+## NAT
 
 We’ll now set up a NAT rule to translate all outgoing traffic from your local network to your public IP address. This will enable devices in your homelab to access the internet using the router’s public IP, ensuring proper routing and security for all outgoing connections.
 
 ```shell
-set nat source rule 10 description 'Enable NAT on WAN interface'
+set nat source rule 10 description 'Enable NAT on WAN-Interface'
 set nat source rule 10 outbound-interface name [YOUR_INTERFACE]
 set nat source rule 10 translation address 'masquerade'
 commit; save
 ```
-### System 
+## System 
 
-#### Hostname
+### Hostname
 
 It’s a good idea to set the Hostname of the system to something that is easily identifiable. I will call mine `BR01`
 
@@ -263,7 +261,7 @@ set system host-name BR01
 commit; save
 ```
 
-#### NTP
+### NTP
 
 By default, VyOS acts as an NTP server for clients. This is usually unnecessary for home use, so it's best to disable it.
 
@@ -286,7 +284,7 @@ set system time-zone Europe/Amsterdam
 commit; save
 ```
 
-#### User
+### User
 
 For security best practices, it's recommended to remove the default `vyos` user and create a new one with administrative privileges. Even thought the command suggest that the password will be saved in plaintext, when committing the changes the system will encrypt it by default. 
 
