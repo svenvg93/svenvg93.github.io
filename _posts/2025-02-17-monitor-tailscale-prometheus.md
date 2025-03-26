@@ -68,7 +68,7 @@ tailscaled_outbound_packets_total{path="direct_ipv6"} 0
 Run the command below on the tailscale client/machine you want to get the metrics from. To ensure that the metrics are always available for Prometheus to scrape.
 
 ```shell
-sudo tailscale set --webclient
+sudo tailscale set --webclient=true
 ```
 
 Now the metrics are available on `http://tailscale-ip:5252/metrics`. You can verify if it all works by opening in your browser. 
