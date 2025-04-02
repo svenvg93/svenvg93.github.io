@@ -1,13 +1,13 @@
 ---
 title: Setting Up Your Travel Router | Secure and Reliable Internet Anywhere
 description: Learn how to set up your travel router for secure and reliable internet on the go. Stay connected anywhere!
-date: 2025-03-19
+date: 2025-04-05
 categories:
   - network
 tags: 
   - gl-inet
 image:
-  path: /assets/img/headers/2025-03-19-travel-router.jpg
+  path: /assets/img/headers/2025-04-05-travel-router.jpg
   alt: Photo by Markus Spiske on Unsplash
 ---
 
@@ -42,8 +42,7 @@ One of the best band for your buck devices is the Beryl AX. The GL.iNet Beryl AX
 - Wi-Fi Standards: Supports IEEE 802.11a/b/g/n/ac/ax protocols.​
 - Wi-Fi Speeds: Delivers up to 574 Mbps on the 2.4 GHz band and up to 2402 Mbps on the 5 GHz band.​
 - Antennas: Features two retractable external Wi-Fi antennas.​
-- Ethernet Ports:
-One 2.5 Gbps WAN port, One 1 Gbps LAN port.​
+- Ethernet Ports: One 2.5 Gbps WAN port, One 1 Gbps LAN port.​
 - USB Ports: Includes one USB 3.0 Type-A port and one USB Type-C port for power input.​
 - Power Supply: Requires a 5V/3A input via the USB Type-C port
 
@@ -51,20 +50,40 @@ Other reason to pick GL.iNet Beryl AX is that it runs OpenWRT, this applies to a
 
 ## Initial setup
 
+> This setup is done with version `4.7.0` installed
+{: .prompt-info }
+
 During the initial setup you can either connect via a ethernet cable or to the default Wireless network of the Beryl. 
 
-In order to login to the Beryl you have to go  `https://192.168.8.1`. This will prompt you a setup wizard to configure a login password to login to the UI of the Beryl. 
+In order to login to the Beryl you have to go  `https://192.168.8.1`. This will prompt you a setup wizard to configure a login password to login to the UI.
+As well as a the name and password for the wireless network. For now I leave the Wireless settings default, as I will change more settings later on. 
 
-As well as a the name and password for the wireless network.
+## Connect to Internet 
+
+### Ethernet 
+
+For the best possible experience, it's best to connect the Beryl with an Ethernet cable when you have the possibility. Some hotels and Airbnbs have an Ethernet cable connected to the TV for streaming services. If you don't need those, for example, when you bring your own streaming device, you can connect this cable to the WAN port of the Beryl. The Beryl will automatically pick up an IP address from the DHCP server.  
+
+> Please note that there might be security measures in place against this. If the Beryl does not get an IP address, the best option might be to connect the Beryl via WiFi as explained below.
+
+### Connect to WiFi 
+
+On the main dashboard, locate the **Repeater** section and click **Connect** to join the Beryl to an existing wireless network. Select the desired network, enter the password if required, and keep all other settings as default.  
+
+If an authentication portal is needed, open a browser on your device to complete the login process.
 
 ### Wireless network
 
-### DNS Rebinding
+By default, the Beryl has separate networks for 2.4GHz and 5GHz. To simplify things, we'll give them the same name, allowing devices to automatically choose the best band based on signal strength and coverage.  
 
+**Steps to configure**:  
+1. **Go to** the **Wireless** section in the side menu.  
+2. **Click on** `Modify`.  
+3. **Set the TX Power to Medium**  
+   - You can adjust this based on your preference. Since you'll likely be in a small space, there's no need for a strong Wi-Fi signal.  
+4. **Change the SSID and Password** to your liking.  
+5. **Set Wi-Fi Security** to **`WPA2-PSK/WPA3-SAE`** for optimal security.  
+6. **Click Apply.**  
 
-## Connect to Wi-Fi 
+Repeat these steps for the 2.4GHz network.
 
-On the main Dashboard you find the Repeater section, Click on `connect` in order to Connect the Beryl to the existing Wireless network.
-
-Find the network you want to connect to and enter the password if needed. 
- 
