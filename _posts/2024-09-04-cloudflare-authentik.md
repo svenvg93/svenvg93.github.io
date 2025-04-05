@@ -30,8 +30,6 @@ First, we need to set up an application in Authentik for Cloudflare. In the Auth
 4. Click Next, and for the Authorization flow, choose explicit-content.
 5. Finally, click Submit to create the application.
 
-![captionless image](/assets/img/screenshots/authentik_app.png)
-
 
 ## Cloudflare Tunnel
 
