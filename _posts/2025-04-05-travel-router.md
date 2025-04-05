@@ -87,3 +87,8 @@ By default, the Beryl has separate networks for 2.4GHz and 5GHz. To simplify thi
 
 Repeat these steps for the 2.4GHz network.
 
+Once you've updated the 2.4GHz network settings, your Beryl is ready to go—use it anywhere you like! 
+
+In an later posts we will dive deeper in other options of the Beryl like DoH, Adguard Home etc.
+
+Happy networking! 🤝
