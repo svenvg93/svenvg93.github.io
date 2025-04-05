@@ -3,13 +3,10 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: "0 9 * * *"
     paths-ignore:
       - .gitignore
       - README.md
       - LICENSE
-
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
