@@ -1,6 +1,6 @@
 ---
 title: Automating Dependabot for Docker Compose
-description: Automate dependabot.yml updates for Docker Compose using Bash and GitHub Actions.
+description: Keep your Docker Compose dependencies secure and up to date by automating Dependabot configuration with a simple Bash script and GitHub Actions.
 date: 2025-05-12
 categories:
   - homelab
