@@ -19,7 +19,7 @@ Keeping dependencies up to date is essential for security and maintainability—
 
 ## Create generate-dependabot.sh
 
-In the top level of your directory, create a script file to `generate dependabot.yml`:
+In the top level of your directory, create a script file to generate `dependabot.yml`:
 
 ```bash
 nano generate-dependabot.sh
@@ -76,6 +76,8 @@ chmod +x generate-dependabot.sh
 ```
 
 When you run the script using `./generate-dependabot.sh`, it will create (or update) the `.github/dependabot.yml` file with a list of all directories containing docker-compose.yml files. Commit this file to your Git repository — Dependabot will then automatically check for updated Docker image versions every month and open a pull request if any updates are found.
+
+> You can change the interval to weekly or daily if you prefer.
 
 ## Github Actions
 
