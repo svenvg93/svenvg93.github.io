@@ -71,7 +71,7 @@ homelab-ansible/
 
 ### `ansible.cfg`
 
-```ini
+```yaml
 [defaults]
 inventory = ./inventory/hosts.yml
 host_key_checking = False
@@ -97,34 +97,6 @@ all:
 
 You can replace `server01` and `server02` with hostnames or IPs.
 
-
-## Writing Your First Playbook
-
-Let’s automate installing `htop` on all your homelab machines.
-
-Create `playbooks/install-htop.yml`:
-
-```yaml
-- name: Install htop on homelab machines
-  hosts: homelab
-  become: yes
-  tasks:
-    - name: Ensure htop is installed
-      apt:
-        name: htop
-        state: present
-```
-
-## Running the Playbook
-
-From the root of your project directory:
-
-```bash
-ansible-playbook playbooks/install-htop.yml
-```
-
-Ansible will connect to all devices in the `homelab` group and install `htop`.
-
 ## Testing Connectivity
 
 You can test SSH connectivity using the ping module:
@@ -145,4 +117,4 @@ By now, you’ve:
 - Structured your first Ansible project
 - Written and executed a basic playbook
 
-From here, you can expand your automation toolkit — manage dotfiles, configure services, apply security hardening, and much more — all from your terminal.
+From here, you can expand your automation toolkit — and in the next parts of this series, we’ll dive into Ansible roles, playbooks,handlers, and Vault to help you build scalable, secure, and maintainable playbooks for your homelab.
