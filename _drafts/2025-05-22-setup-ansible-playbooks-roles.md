@@ -1,0 +1,160 @@
+---
+title: Ansible Series Part 2 | Playbooks, Roles & Handlers
+description: Learn to organize your Ansible automation with playbooks, roles, and handlers for cleaner, scalable infrastructure.
+date: 2025-05-22
+categories:
+  - homelab
+  - automation
+tags:
+  - ansible
+  - infrastructure
+  - roles
+image:
+  path: /assets/img/headers/2025-05-22-setup-ansible-playbooks-roles.jpg
+  alt: Photo by Gabriel Heinzer on Unsplash
+---
+
+In this part of the Ansible series, you’ll learn how to automate routine system maintenance tasks like updating packages and rebooting, while organizing your project using **roles** and **handlers** for better structure and reuse.
+
+## What Are Ansible Roles?
+
+Roles are a way to organize your Ansible code into reusable, modular components.
+
+A role has a standard folder structure (tasks/, handlers/, defaults/, etc.), and can include everything needed to configure a specific part of your system.
+
+Benefits:
+- Keeps your playbooks clean
+- Promotes reuse across multiple playbooks
+- Encourages good organization
+
+Example:
+Instead of writing all tasks inline, you just do:
+
+```yaml
+roles:
+  - maintenance
+```
+
+And Ansible will run roles/maintenance/tasks/main.yml.
+
+## What Are Handlers?
+
+Handlers are special tasks triggered only when notified by another task.
+
+They’re usually used for things like restarting services or rebooting after updates.
+
+Example:
+```yaml
+tasks:
+  - name: Update packages
+    apt:
+      upgrade: dist
+    notify: Reboot if required
+
+handlers:
+  - name: Reboot if required
+    reboot:
+      reboot_timeout: 600
+```
+
+So if the package update changes something, the handler will run. Otherwise, it won’t.
+
+## Directory Structure
+
+```
+homelab-ansible/
+├── ansible.cfg
+├── inventory/
+│   └── hosts.yml
+├── playbooks/
+│   └── system-maintenance.yml
+├── roles/
+│   └── maintenance/
+│       ├── tasks/
+│       │   └── main.yml
+│       └── handlers/
+│           └── main.yml
+└── README.md
+```
+
+## Create a Maintaince role
+
+To keep our Ansible project organized and reusable, we've created a role named `maintenance`. Roles allow us to encapsulate related tasks and logic — in this case, everything related to basic system maintenance — into a dedicated directory structure.
+
+### Create Task
+
+```yaml
+- name: Update APT package cache
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Upgrade all packages
+  ansible.builtin.apt:
+    upgrade: dist
+    autoremove: true
+    autoclean: true
+  notify: Reboot if required
+```
+{: file='roles/maintenance/tasks/main.yml'}
+
+
+This file defines the main tasks:
+- Updates the APT cache
+- Upgrades all packages
+- Notifies the reboot handler if anything changes
+
+### Create Handlers
+
+```yaml
+- name: Reboot if required
+  ansible.builtin.reboot:
+    reboot_timeout: 600
+```
+{: file='roles/maintenance/handlers/main.yml'}
+
+The reboot handler is triggered only when notified by the upgrade task. If changes are made during the upgrade, the handler will automatically reboot the host to apply updates that require a restart.
+
+## Create Playbook
+
+```yaml
+- name: Perform system maintenance
+  hosts: homelab
+  become: true
+  roles:
+    - maintenance
+```
+{: file='playbooks/system-maintenance.yml'}
+
+
+This playbook:
+- Targets the `homelab` group
+- Uses privilege escalation (`become: true`)
+- Calls the `maintenance` role
+
+
+## Run the Playbook
+
+From your project root:
+
+```bash
+ansible-playbook playbooks/system-maintenance.yml --ask-become-pass
+```
+
+## Why This Structure Works
+
+This role-based layout keeps your playbooks clean and modular:
+
+- **Separation of concerns:** Logic for package maintenance is kept inside a role
+- **Reusability:** You can reuse the `maintenance` role in other playbooks or environments
+- **Cleaner playbooks:** Top-level playbooks become short and easy to understand
+
+## Recap
+
+You’ve now:
+
+- Created a system maintenance role
+- Used handlers to reboot only when needed
+- Organized your playbook for better scalability
+
+Next up: using **Ansible Vault** to manage secrets securely!

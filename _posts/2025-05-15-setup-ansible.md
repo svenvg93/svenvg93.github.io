@@ -7,18 +7,17 @@ categories:
   - automation
 tags:
   - ansible
+  - infrastructure
 image:
   path: /assets/img/headers/2025-05-15-setup-ansible.jpg
-  alt: Photo by Simon Kadula on Unsplash
+  alt: Photo by Jake Walker on Unsplash
 ---
 
-Ansible is a powerful automation tool that lets you manage servers using simple, human-readable playbooks. In this first part of the series, we’ll walk through installing Ansible, setting up SSH key access, and running your first playbook — laying the groundwork for automating your homelab.
+Ansible is a powerful automation tool that lets you manage your infrastructure using simple, repeatable playbooks. In this first part of the series, you'll install Ansible, configure SSH access, and run your first task — laying the foundation for automating your homelab.
 
-## Installing Ansible
+## Install Ansible
 
-Start by installing Ansible on your control machine (usually your local workstation).
-
-For Ubuntu or Debian:
+Install Ansible on your local workstation or control node.
 
 ```bash
 sudo apt update
@@ -27,19 +26,23 @@ sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install -y ansible
 ```
 
-Once installed, run `ansible --version` to verify.
+After installation, confirm with:
 
-## Setting Up SSH Access
+```bash
+ansible --version
+```
 
-Ansible uses SSH to connect to remote machines. Setting up key-based SSH allows seamless, passwordless access.
+## Set Up SSH Key Access
 
-### Generate an SSH key (if you don’t already have one)
+Ansible connects to remote machines via SSH. To avoid typing passwords every time, set up SSH key authentication.
+
+### Generate a key pair
 
 ```bash
 ssh-keygen -t ed25519
 ```
 
-Press enter to accept the default location. You can skip the passphrase for automation purposes.
+Press enter to use the default file location. Leave the passphrase empty for automation.
 
 ### Copy your public key to a remote host
 
@@ -47,17 +50,17 @@ Press enter to accept the default location. You can skip the passphrase for auto
 ssh-copy-id user@your-server-ip
 ```
 
-Now verify it works:
+Then test your connection:
 
 ```bash
 ssh user@your-server-ip
 ```
 
-If you’re logged in without being prompted for a password, you’re ready.
+If you’re logged in without a password prompt, you're ready to automate.
 
-## Structuring Your Homelab Ansible Project
+## Project Structure
 
-Here's a simple directory layout to manage your homelab infrastructure:
+Here’s a basic layout for organizing your Ansible project:
 
 ```
 homelab-ansible/
@@ -69,22 +72,25 @@ homelab-ansible/
 └── README.md
 ```
 
-### `ansible.cfg`
+### Create `ansible.cfg`
 
-```yaml
+```ini
 [defaults]
 inventory = ./inventory/hosts.yml
 host_key_checking = False
 retry_files_enabled = False
 timeout = 10
 ```
+{: file="ansible.cfg" }
 
-This config points Ansible to your inventory file and disables host key checking to prevent interruptions.
+This configuration:
+- Points to your inventory file
+- Disables SSH host key prompts
+- Improves reliability by disabling retry files and adding a timeout
 
+### Define Your Inventory
 
-## Defining Your Inventory
-
-Create `inventory/hosts.yml` to group your homelab servers:
+Create a static inventory file to list your homelab machines:
 
 ```yaml
 all:
@@ -94,27 +100,69 @@ all:
         server01:
         server02:
 ```
+{: file="inventory/hosts.yml" }
 
-You can replace `server01` and `server02` with hostnames or IPs.
+Replace `server01` and `server02` with actual IPs or hostnames.
 
-## Testing Connectivity
 
-You can test SSH connectivity using the ping module:
+
+## Test SSH Connectivity
+
+Use Ansible’s ping module to confirm everything is working:
 
 ```bash
 ansible -m ping homelab
 ```
 
-This sends a lightweight ping over SSH to each host.
+Each machine should return `"pong"` if SSH and the inventory are set up correctly.
 
+
+
+## First Playbook: Install `htop`
+
+Let’s write a simple playbook to install a package on all your homelab servers.
+
+```yaml
+- name: Install htop on homelab servers
+  hosts: homelab
+  become: true
+  tasks:
+    - name: Ensure htop is installed
+      ansible.builtin.apt:
+        name: htop
+        state: present
+```
+{: file="playbooks/install-htop.yml" }
+
+This playbook:
+- Connects to all hosts in the `homelab` group
+- Uses `sudo` (`become: true`)
+- Installs the `htop` package if it's not already present
+
+## Run the Playbook
+
+From your project root:
+
+```bash
+ansible-playbook playbooks/install-htop.yml --ask-become-pass
+```
+
+If your user has passwordless sudo, you can skip the `--ask-become-pass` flag.
 
 ## Recap
 
-By now, you’ve:
+You’ve now:
 
 - Installed Ansible
-- Set up SSH key-based access to your servers
-- Structured your first Ansible project
+- Set up SSH key access to your servers
+- Created a clean project structure
 - Written and executed a basic playbook
 
-From here, you can expand your automation toolkit — and in the next parts of this series, we’ll dive into Ansible roles, playbooks,handlers, and Vault to help you build scalable, secure, and maintainable playbooks for your homelab.
+## What’s Next
+
+In the next parts of this series, we’ll cover:
+- Organizing your automation with roles
+- Reacting to changes using handlers
+- Managing secrets securely with Ansible Vault
+
+You’re now ready to scale up your homelab automation. Let's continue.
