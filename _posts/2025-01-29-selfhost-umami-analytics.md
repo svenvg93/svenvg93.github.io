@@ -134,7 +134,7 @@ Now we need to add the website we want to analyze to Umami.
 
 ## Add the Website ID to Your Website
 
-Now you can add the Website ID to your website, according to their instructions. In this example we add it to a [Jekyll blog with the Chripy theme](../jekyll-cf-pages).
+Now you can add the Website ID to your website, according to their instructions. In this example we add it to a [Jekyll blog with the Chripy theme](../jekyll-chirpy-cloudflare-pages).
 
 Fill in your own data into `_config.yml` to integrate Umami analytics.
 (search for umami in config file)
