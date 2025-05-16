@@ -13,14 +13,14 @@ image:
   alt: Photo by Prince Adufah on Unsplash
 ---
 
-> Find a updated version of this guide in the [The Ultimate Guide to Setting Up Traefik](../ultimate-treafik-guide)
+> Find a updated version of this guide in the [The Ultimate Guide to Setting Up Traefik](../2025-01-11-ultimate-traefik-guide)
 {: .prompt-tip }
 
 By default, Traefik uses the HTTP Challenge to obtain SSL certificates from Let’s Encrypt, verifying domain ownership via HTTP requests. However, the DNS-01 Challenge offers a more versatile alternative. It validates domain ownership through DNS records, making it ideal for securing subdomains or applications behind firewalls or NAT.
 
 In this guide, we’ll configure the DNS-01 Challenge with Cloudflare to obtain SSL certificates from Let’s Encrypt. This method enables Traefik to manage certificates securely and efficiently, even in complex network setups, providing flexibility for homelabs and self-hosted environments.
 
-> If you need to setup Traefik from the beginning check [here](../traefik-docker)
+> If you need to setup Traefik from the beginning check [here](../2024-05-21-traefik-series-part-1-reverse-proxy)
 
 ## Cloudflare API
 

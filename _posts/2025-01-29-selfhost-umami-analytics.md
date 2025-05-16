@@ -99,7 +99,7 @@ docker compose -f umami/docker-compose.yml up -d
 
 ## Configure Cloudflare Tunnel
 
-> Setting up the Cloudflare tunnel is out of scope for this post. Check out this [post](../cloudflare-tunnel) if you want to know how to set it up.
+> Setting up the Cloudflare tunnel is out of scope for this post. Check out this [post](../2024-08-21-cloudflare-tunnel-secure) if you want to know how to set it up.
 
 Now we need to add Umami to the Cloudflare Tunnel on the Zero Trust page to ensure it can be accessed securely.
 
