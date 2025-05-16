@@ -18,13 +18,6 @@ Storing API keys, tokens, and passwords in your playbooks isn’t safe—especia
 
 In this third part of the series, I’ll show you how I use Vault to securely manage secrets in my homelab setup. In this example, we’ll use Vault to store a Tailscale auth key, which one of my roles uses to authenticate a server into my private Tailscale network.
 
-## Prerequisites
-
-- Ansible is installed (`ansible --version`)
-- You have a valid Tailscale auth key (`tskey-XXXX`)
-- Your project has a `group_vars/` folder
-
-
 ## Suggested Directory Structure
 
 Here’s how I structure my group variables folder:
@@ -66,8 +59,6 @@ You can now use the secret just like any other variable:
 
 Ansible will automatically load variables from `group_vars/`.
 
----
-
 ## Run the Playbook with Vault
 
 Once you've encrypted your secrets with Ansible Vault, you can run your playbook securely by providing the vault password at runtime:
@@ -99,7 +90,6 @@ Add this to your `.gitignore` file to prevent secrets from being committed:
 
 ```gitignore
 group_vars/vault.yml
-.vault_pass.txt
 ```
 {: file=".gitignore" }
 
