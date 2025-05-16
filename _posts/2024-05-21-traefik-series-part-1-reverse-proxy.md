@@ -9,7 +9,7 @@ tags:
   - docker
   - traefik
 image:
-  path: /assets/img/headers/2024-05-21-traefik-docker.jpg
+  path: /assets/img/headers/2024-05-21-traefik-series-part-1-reverse-proxy.jpg
   alt: Photo by Reid Naaykens on Unsplash
 mermaid: true
 ---

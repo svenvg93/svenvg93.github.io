@@ -9,7 +9,7 @@ tags:
   - traefik
   - cloudflare
 image:
-  path: /assets/img/headers/2024-05-22-traefik-dns-cloudflare.jpg
+  path: /assets/img/headers/2024-05-22-traefik-series-part-2-dns01-cloudflare.jpg
   alt: Photo by Prince Adufah on Unsplash
 ---
 

@@ -10,7 +10,7 @@ tags:
   - cloudflare
   - authentik
 image:
-  path: /assets/img/headers/2024-09-04-cloudflare-authentik.jpg
+  path: /assets/img/headers/2024-09-04-cloudflare-tunnel-authentik.jpg
   alt: Photo by Markus Spiske on Unsplash
 ---
 Enhancing the security and accessibility of your self-hosted applications is simplified with the right tools. By leveraging Cloudflare Tunnels and Authentik, you can create a powerful combination that fortifies your setup. Cloudflare Tunnels allow you to securely expose your local server to the internet, concealing your IP address and eliminating the need for port forwarding. In tandem, Authentik provides robust authentication and access control features.

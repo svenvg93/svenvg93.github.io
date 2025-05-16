@@ -10,7 +10,7 @@ tags:
   - github
   - jekyll
 image:
-  path: /assets/img/headers/2025-01-31-github-actions-cloudflare-pages.jpg
+  path: /assets/img/headers/2025-01-31-github-actions-blog-update.jpg
   alt: Photo by Ilya Pavlov on Unsplash
 ---
 

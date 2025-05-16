@@ -9,7 +9,7 @@ tags:
   - cloudflare
   - notifications
 image:
-  path: /assets/img/headers/2024-10-01-ntfy.jpg
+  path: /assets/img/headers/2024-10-01-setup-ntfy-selfhosted.jpg
   alt: Photo by Jamie Street on Unsplash
 ---
 In today’s world, staying informed about events in our homelabs is essential. ntfy is a straightforward HTTP-based notification service that allows you to send notifications to your phone or desktop from any computer using scripts or a REST API. The best part? You can host it entirely within your own homelab.

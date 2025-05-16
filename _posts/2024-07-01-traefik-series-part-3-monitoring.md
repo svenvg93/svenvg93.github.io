@@ -10,7 +10,7 @@ tags:
   - monitoring
   - traefik
 image:
-  path: /assets/img/headers/2024-07-01-traefik-monitoring.jpg
+  path: /assets/img/headers/2024-07-01-traefik-series-part-3-monitoring.jpg
   alt: Photo by Berkin Üregen on Unsplash
 ---
 

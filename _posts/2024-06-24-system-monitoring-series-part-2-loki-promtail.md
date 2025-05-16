@@ -9,7 +9,7 @@ tags:
   - docker
   - monitoring
 image:
-  path: /assets/img/headers/2024-06-24-grafana-loki.jpg
+  path: /assets/img/headers/2024-06-24-system-monitoring-series-part-2-loki-promtail.jpg
   alt: Photo by Mr Cup / Fabien Barral on Unsplash
       
 ---

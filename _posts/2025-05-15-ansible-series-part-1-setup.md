@@ -9,7 +9,7 @@ tags:
   - ansible
   - infrastructure
 image:
-  path: /assets/img/headers/2025-05-15-setup-ansible.jpg
+  path: /assets/img/headers/2025-05-15-ansible-series-part-1-setup.jpg
   alt: Photo by Jake Walker on Unsplash
 ---
 

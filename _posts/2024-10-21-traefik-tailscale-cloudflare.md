@@ -11,7 +11,7 @@ tags:
   - tailscale
   - traefik
 image:
-  path: /assets/img/headers/2024-10-21-traefik-tailscale.jpg
+  path: /assets/img/headers/2024-10-21-traefik-tailscale-cloudflare.jpg
   alt: Photo by Taylor Vick on Unsplash
 ---
 There are instances when you want to ensure that only you have remote access to specific areas of your homelab. In this post, we’ll explore how to leverage Tailscale, Traefik, and Cloudflare to establish a private and secure connection to your homelab services.

@@ -10,7 +10,7 @@ tags:
   - github
   - jekyll
 image:
-  path: /assets/img/headers/2024-07-15-jekyll-cf-pages.jpg
+  path: /assets/img/headers/2024-07-15-jekyll-chirpy-cloudflare-pages.jpg
   alt: Photo by Daria Kraplak on Unsplash
 mermaid: true
 ---
