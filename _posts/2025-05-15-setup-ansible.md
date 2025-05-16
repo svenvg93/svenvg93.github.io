@@ -120,11 +120,11 @@ Use Ansible’s ping module to confirm everything is working:
 ansible -m ping homelab
 ```
 
-Each machine should return `"pong"` if SSH and the inventory are set up correctly.
+Each machine should return `pong` if SSH and the inventory are set up correctly.
 
 
 
-## First Playbook: Install `htop`
+## First Playbook: Install htop
 
 Let’s write a simple playbook to install a package on all your homelab servers.
 
