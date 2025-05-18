@@ -9,12 +9,12 @@ tags:
   - docker
   - traefik
 image:
-  path: /assets/img/headers/2024-05-21-traefik-docker.jpg
+  path: /assets/img/headers/2024-05-21-traefik-series-part-1-reverse-proxy.jpg
   alt: Photo by Reid Naaykens on Unsplash
 mermaid: true
 ---
 
-> Find a updated version of this guide in the [The Ultimate Guide to Setting Up Traefik](../ultimate-treafik-guide)
+> Find a updated version of this guide in the [The Ultimate Guide to Setting Up Traefik](../ultimate-traefik-guide)
 {: .prompt-tip }
 
 These days, many applications are installed via containers. Traefik is a modern open-source reverse proxy and ingress controller that simplifies and secures service deployment.

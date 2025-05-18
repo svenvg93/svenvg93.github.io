@@ -1,7 +1,7 @@
 ---
 title: Ansible Series Part 2 | Playbooks, Roles & Handlers
 description: Learn to organize your Ansible automation with playbooks, roles, and handlers for cleaner, scalable infrastructure.
-date: 2025-05-22
+date: 2025-05-19
 categories:
   - homelab
   - automation
@@ -10,7 +10,7 @@ tags:
   - infrastructure
   - roles
 image:
-  path: /assets/img/headers/2025-05-22-setup-ansible-playbooks-roles.jpg
+  path: /assets/img/headers/2025-05-19-ansible-series-part-2-roles.jpg
   alt: Photo by Gabriel Heinzer on Unsplash
 ---
 
@@ -20,7 +20,7 @@ In this part of the Ansible series, you’ll learn how to automate routine syste
 
 Roles are a way to organize your Ansible code into reusable, modular components.
 
-A role has a standard folder structure (tasks/, handlers/, defaults/, etc.), and can include everything needed to configure a specific part of your system.
+A role has a standard folder structure (tasks/, handlers/ etc.), and can include everything needed to configure a specific part of your system.
 
 Benefits:
 - Keeps your playbooks clean
@@ -79,7 +79,7 @@ homelab-ansible/
 
 ## Create a Maintaince role
 
-To keep our Ansible project organized and reusable, we've created a role named `maintenance`. Roles allow us to encapsulate related tasks and logic — in this case, everything related to basic system maintenance — into a dedicated directory structure.
+To maintain a well-organized and reusable Ansible project, we've introduced a role called `maintenance` that handles system package updates across all hosts. By using roles, we can group related tasks and logic—in this case, routine system maintenance—into a dedicated, structured directory for better clarity and reusability.
 
 ### Create Task
 
@@ -128,7 +128,7 @@ The reboot handler is triggered only when notified by the upgrade task. If chang
 
 
 This playbook:
-- Targets the `homelab` group
+- Targets the `homelab` group in your `hosts.yml`
 - Uses privilege escalation (`become: true`)
 - Calls the `maintenance` role
 
@@ -140,6 +140,8 @@ From your project root:
 ```bash
 ansible-playbook playbooks/system-maintenance.yml --ask-become-pass
 ```
+
+If your user has passwordless sudo, you can skip the `--ask-become-pass` flag.
 
 ## Why This Structure Works
 
@@ -158,3 +160,5 @@ You’ve now:
 - Organized your playbook for better scalability
 
 Next up: using **Ansible Vault** to manage secrets securely!
+
+> In the meantime check out my [git repro](https://github.com/svenvg93/ansible-homelab) that I use for my homelab

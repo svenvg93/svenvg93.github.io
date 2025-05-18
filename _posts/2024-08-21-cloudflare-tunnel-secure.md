@@ -9,7 +9,7 @@ tags:
   - docker
   - cloudflare
 image:
-  path: /assets/img/headers/2024-08-21-cloudflare-tunnel.jpg
+  path: /assets/img/headers/2024-08-21-cloudflare-tunnel-secure.jpg
   alt: Photo by Alexander Mils on Unsplash
 mermaid: true
 ---

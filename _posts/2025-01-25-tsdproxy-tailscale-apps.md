@@ -9,7 +9,7 @@ tags:
   - tailscale
   - docker
 image:
-  path: /assets/img/headers/2025-01-25-setup-tsdproxy.jpg
+  path: /assets/img/headers/2025-01-25-tsdproxy-tailscale-apps.jpg
   alt: Photo by Jordan Harrison on Unsplash
 ---
 

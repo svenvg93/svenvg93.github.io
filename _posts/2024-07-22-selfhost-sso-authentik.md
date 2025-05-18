@@ -9,7 +9,7 @@ tags:
   - docker
   - authentik
 image:
-  path: /assets/img/headers/2024-07-22-authentik-setup.jpg
+  path: /assets/img/headers/2024-07-22-selfhost-sso-authentik.jpg
   alt: Photo by Sebastian Herrmann on Unsplash
 ---
 

@@ -8,7 +8,7 @@ categories:
 tags: 
   - vyos
 image:
-  path: /assets/img/headers/2025-03-25-setup-vyos-router.jpg
+  path: /assets/img/headers/2025-03-25-setup-vyos-home-router.jpg
   alt: Photo by Patrick Turner on Unsplash
 ---
 

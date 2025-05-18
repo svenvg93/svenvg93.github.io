@@ -9,7 +9,7 @@ tags:
   - cloudflare
   - docker
 image:
-  path: /assets/img/headers/2025-01-29-selfhosted-web-analytics.jpg
+  path: /assets/img/headers/2025-01-29-selfhost-umami-analytics.jpg
   alt: Photo by Luke Chesser on Unsplash
 ---
 Umami is an open-source, privacy-focused web analytics tool that serves as an alternative to Google Analytics. It offers essential insights into website traffic, user behavior, and performance while prioritizing data privacy. Unlike many traditional analytics platforms, Umami does not collect or store personal data, ensuring compliance with GDPR and PECR, and eliminating the need for cookies.
@@ -99,7 +99,7 @@ docker compose -f umami/docker-compose.yml up -d
 
 ## Configure Cloudflare Tunnel
 
-> Setting up the Cloudflare tunnel is out of scope for this post. Check out this [post](../cloudflare-tunnel) if you want to know how to set it up.
+> Setting up the Cloudflare tunnel is out of scope for this post. Check out this [post](../cloudflare-tunnel-secure) if you want to know how to set it up.
 
 Now we need to add Umami to the Cloudflare Tunnel on the Zero Trust page to ensure it can be accessed securely.
 
@@ -134,7 +134,7 @@ Now we need to add the website we want to analyze to Umami.
 
 ## Add the Website ID to Your Website
 
-Now you can add the Website ID to your website, according to their instructions. In this example we add it to a [Jekyll blog with the Chripy theme](../jekyll-cf-pages).
+Now you can add the Website ID to your website, according to their instructions. In this example we add it to a [Jekyll blog with the Chripy theme](../jekyll-chirpy-cloudflare-pages).
 
 Fill in your own data into `_config.yml` to integrate Umami analytics.
 (search for umami in config file)

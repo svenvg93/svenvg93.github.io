@@ -7,7 +7,7 @@ categories:
 tags: 
   - gl-inet
 image:
-  path: /assets/img/headers/2025-04-05-travel-router.jpg
+  path: /assets/img/headers/2025-04-05-travel-router-setup.jpg
   alt: Photo by Markus Spiske on Unsplash
 ---
 

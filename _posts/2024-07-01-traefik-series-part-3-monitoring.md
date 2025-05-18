@@ -10,13 +10,13 @@ tags:
   - monitoring
   - traefik
 image:
-  path: /assets/img/headers/2024-07-01-traefik-monitoring.jpg
+  path: /assets/img/headers/2024-07-01-traefik-series-part-3-monitoring.jpg
   alt: Photo by Berkin Üregen on Unsplash
 ---
 
 We all enjoy visually appealing graphs filled with data, especially for the services we host. Thankfully, Traefik exposes useful metrics on EntryPoints, Routers, Services, and more. By using Prometheus to scrape these metrics and integrating Promtail with Loki for log collection, we can create a complete monitoring solution.
 
-> Setting up Grafana, Prometheus, Promtail and Loki is out of scope of this Story. See my other stories on how to setup [Grafana & Prometheus](../grafana-prometheus) and [Promtail & Loki](../grafana-loki)
+> Setting up Grafana, Prometheus, Promtail and Loki is out of scope of this Story. See my other stories on how to setup [Grafana & Prometheus](../system-monitoring-series-part-1-prometheus) and [Promtail & Loki](../system-monitoring-series-part-2-loki-promtail)
 
 ## Key Components
 

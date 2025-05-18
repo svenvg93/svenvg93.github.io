@@ -10,7 +10,7 @@ tags:
   - github
   - mkdocs
 image:
-  path: /assets/img/headers/2024-07-08-mkdocs-cf-pages.jpg
+  path: /assets/img/headers/2024-07-08-mkdocs-material-cloudflare-pages.jpg
   alt: Photo by Viktor Talashuk on Unsplash
 mermaid: true
 ---

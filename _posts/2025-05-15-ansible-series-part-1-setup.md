@@ -9,7 +9,7 @@ tags:
   - ansible
   - infrastructure
 image:
-  path: /assets/img/headers/2025-05-15-setup-ansible.jpg
+  path: /assets/img/headers/2025-05-15-ansible-series-part-1-setup.jpg
   alt: Photo by Jake Walker on Unsplash
 ---
 
@@ -17,17 +17,20 @@ Ansible is a powerful automation tool that lets you manage your infrastructure u
 
 ## Install Ansible
 
-Install Ansible on your local workstation or control node.
+Install Ansible on your local workstation or control node. In my case I use a my macbook as "control node".
 
+Ensure pip is available and up to date:
 ```bash
-sudo apt update
-sudo apt install -y software-properties-common
-sudo add-apt-repository --yes --update ppa:ansible/ansible
-sudo apt install -y ansible
+python3 -m ensurepip --upgrade
+python3 -m pip install --upgrade pip
 ```
 
-After installation, confirm with:
+Install Ansible:
+```bash
+pip install ansible
+```
 
+Verify the installation:
 ```bash
 ansible --version
 ```
@@ -35,6 +38,9 @@ ansible --version
 ## Set Up SSH Key Access
 
 Ansible connects to remote machines via SSH. To avoid typing passwords every time, set up SSH key authentication.
+
+> If you already use [Tailscale](https://tailscale.com) to access your nodes, you can use **Tailscale SSH** instead of managing your own SSH keys.
+
 
 ### Generate a key pair
 
@@ -114,11 +120,11 @@ Use Ansible’s ping module to confirm everything is working:
 ansible -m ping homelab
 ```
 
-Each machine should return `"pong"` if SSH and the inventory are set up correctly.
+Each machine should return `pong` if SSH and the inventory are set up correctly.
 
 
 
-## First Playbook: Install `htop`
+## First Playbook: Install htop
 
 Let’s write a simple playbook to install a package on all your homelab servers.
 
@@ -147,7 +153,7 @@ From your project root:
 ansible-playbook playbooks/install-htop.yml --ask-become-pass
 ```
 
-If your user has passwordless sudo, you can skip the `--ask-become-pass` flag.
+> If your user has passwordless sudo, you can skip the `--ask-become-pass` flag.
 
 ## Recap
 
@@ -165,4 +171,6 @@ In the next parts of this series, we’ll cover:
 - Reacting to changes using handlers
 - Managing secrets securely with Ansible Vault
 
-You’re now ready to scale up your homelab automation. Let's continue.
+You’re now ready to scale up your homelab automation. Let's continue. 
+
+> In the meantime check out my [git repro](https://github.com/svenvg93/ansible-homelab) that I use for my homelab
