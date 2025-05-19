@@ -2,13 +2,12 @@
 title: Ansible Series Part 3 | Ansible Vault
 description: Learn how to use Ansible Vault to securely manage secrets in your playbooks.
 date: 2025-05-29
+series: Ansible
 categories:
-  - homelab
-  - automation
+  - Automation
 tags:
   - ansible
-  - security
-  - vault
+  - secrets
 image:
   path: /assets/img/headers/2025-05-29-ansible-series-part-3-vault.jpg
   alt: Photo by Markus Spiske on Unsplash

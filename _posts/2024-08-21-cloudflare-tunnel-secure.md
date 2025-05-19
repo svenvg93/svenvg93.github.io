@@ -2,11 +2,10 @@
 title: Self-hosting securely with Cloudflare Tunnels
 description: Securely exposing your services with Cloudfare Tunnels.
 date: 2024-08-21
-categories: 
-  - selfhosting
-  - security
-tags: 
-  - docker
+categories:
+  - Security
+  - Zero Trust
+tags:
   - cloudflare
 image:
   path: /assets/img/headers/2024-08-21-cloudflare-tunnel-secure.jpg

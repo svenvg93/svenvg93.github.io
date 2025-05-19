@@ -2,13 +2,13 @@
 title: Jekyll & Chirpy blog on Cloudflare Pages
 description: Build your own blog with Jekyll & Chirpy and host it on Cloudflare Pages
 date: 2024-07-15
-categories: 
-  - hosting
-  - cloud
-tags: 
-  - cloudflare
-  - github
+categories:
+  - Documentation
+  - CI/CD
+tags:
   - jekyll
+  - chirpy
+  - cloudflare pages
 image:
   path: /assets/img/headers/2024-07-15-jekyll-chirpy-cloudflare-pages.jpg
   alt: Photo by Daria Kraplak on Unsplash

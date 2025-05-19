@@ -3,13 +3,11 @@ title: Exposing Self-Hosted Apps with Traefik and Tailscale
 description: Securely expose your self-hosted apps using Traefik and Tailscale, without touching your router.
 date: 2025-05-16
 categories:
-  - selfhosting
-  - networking
+  - Networking
+  - Reverse Proxy
 tags:
   - traefik
   - tailscale
-  - reverse proxy
-  - homelab
 image:
   path: /assets/img/headers/2025-05-16-traefik-tailscale-cloudflare.jpg
   alt: Traefik and Tailscale network diagram

@@ -3,10 +3,11 @@ title: Setting up an Mikrotik Router
 description: Configure a Mikrotik Router for your homelab, with a secure and flexible configureation.
 date: 2025-01-05
 categories:
-  - homelab
-  - network
-tags: 
+  - Networking
+  - Router
+tags:
   - mikrotik
+  - firewall
 image:
   path: /assets/img/headers/2025-01-05-setup-mikrotik.jpg
   alt: Photo by Albert Stoynov on Unsplash

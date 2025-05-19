@@ -2,12 +2,11 @@
 title: Ansible Series Part 1 | Initial Setup
 description: Getting started with Ansible — from installation to your first automated task.
 date: 2025-05-15
+series: Ansible
 categories:
-  - homelab
-  - automation
+  - Automation
 tags:
   - ansible
-  - infrastructure
 image:
   path: /assets/img/headers/2025-05-15-ansible-series-part-1-setup.jpg
   alt: Photo by Jake Walker on Unsplash

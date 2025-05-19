@@ -2,12 +2,14 @@
 title: System Monitoring Series Part 2 | Log Monitoring with Loki & Promtail
 description: In Part 2 of the System Monitoring series, discover how to configure log monitoring for your systems using Loki and Promtail, visualized with Grafana.
 date: 2024-06-24
-categories: 
-  - selfhosting
-  - monitoring
-tags: 
+series: Monitoring
+categories:
+  - Monitoring
+  - Logging
+tags:
   - docker
-  - monitoring
+  - grafana
+  - loki
 image:
   path: /assets/img/headers/2024-06-24-system-monitoring-series-part-2-loki-promtail.jpg
   alt: Photo by Mr Cup / Fabien Barral on Unsplash

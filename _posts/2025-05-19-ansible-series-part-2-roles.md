@@ -2,13 +2,11 @@
 title: Ansible Series Part 2 | Playbooks, Roles & Handlers
 description: Learn to organize your Ansible automation with playbooks, roles, and handlers for cleaner, scalable infrastructure.
 date: 2025-05-19
+series: Ansible
 categories:
-  - homelab
-  - automation
+  - Automation
 tags:
   - ansible
-  - infrastructure
-  - roles
 image:
   path: /assets/img/headers/2025-05-19-ansible-series-part-2-roles.jpg
   alt: Photo by Gabriel Heinzer on Unsplash

@@ -172,6 +172,10 @@ collections:
     sort_by: order
   projects:
     output: true
+    permalink: /projects/:name/
+  series:
+    output: true
+    permalink: /series/:name/
 
 defaults:
   - scope:
@@ -197,6 +201,7 @@ defaults:
   - scope:
       path: ""
       type: projects
+      permalink: /projects/:title/
     values:
       layout: post
       comments: true

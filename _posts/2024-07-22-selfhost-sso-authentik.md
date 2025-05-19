@@ -2,12 +2,13 @@
 title: Selfhost a Single Sign-on MFA with Authentik
 description: Selfhost a iDP for your homelab.
 date: 2024-07-22
-categories: 
-  - selfhosting
-  - security
-tags: 
-  - docker
+categories:
+  - Security
+  - Zero Trust
+tags:
   - authentik
+  - docker
+  - sso
 image:
   path: /assets/img/headers/2024-07-22-selfhost-sso-authentik.jpg
   alt: Photo by Sebastian Herrmann on Unsplash

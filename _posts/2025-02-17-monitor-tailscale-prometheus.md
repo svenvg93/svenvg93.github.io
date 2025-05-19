@@ -2,12 +2,13 @@
 title: Monitoring Tailscale clients with Prometheus
 description: Learn how to track Tailscale traffic using Prometheus for real-time insights into your secure network.
 date: 2025-02-17
-categories: 
+categories:
+  - Monitoring
+  - Metrics
+tags:
+  - prometheus
   - tailscale
-  - monitoring
-tags: 
-  - tailscale
-  - docker
+  - grafana
 image:
   path: /assets/img/headers/2025-02-17-monitor-tailscale-prometheus.jpg
   alt: Photo by Jack B on Unsplash

@@ -2,12 +2,13 @@
 title: The Ultimate Guide to Setting Up Traefik
 description: Master the art of deploying Traefik in your environment. This comprehensive guide covers everything from installation to advanced configuration for seamless traffic management in your homelab.
 date: 2025-01-11
-categories: 
-  - selfhosting
+categories:
+  - Networking
+  - Reverse Proxy
+tags:
   - traefik
-tags: 
-  - docker
-  - traefik
+  - cloudflare
+  - lets encrypt
 image:
   path: /assets/img/headers/2025-01-11-ultimate-traefik-guide.jpg
   alt: Photo by Brendan Church  on Unsplash

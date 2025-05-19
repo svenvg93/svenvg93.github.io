@@ -3,10 +3,11 @@ title: Setting up VyOS router for your home network
 description: Setting up a VyOS router for your homelab gives you enterprise-grade networking with open-source flexibility.
 date: 2025-03-25
 categories:
-  - homelab
-  - network
-tags: 
+  - Networking
+  - Router
+tags:
   - vyos
+  - firewall
 image:
   path: /assets/img/headers/2025-03-25-setup-vyos-home-router.jpg
   alt: Photo by Patrick Turner on Unsplash

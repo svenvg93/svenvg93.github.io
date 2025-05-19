@@ -2,12 +2,11 @@
 title: Material for MkDocs on Cloudflare Pages
 description: Build a documentation site with Material for MkDocs on Cloudflare Pages
 date: 2024-07-08
-categories: 
-  - hosting
-  - cloud
-tags: 
-  - cloudflare
-  - github
+categories:
+  - Documentation
+  - CI/CD
+tags:
+  - cloudflare pages
   - mkdocs
 image:
   path: /assets/img/headers/2024-07-08-mkdocs-material-cloudflare-pages.jpg

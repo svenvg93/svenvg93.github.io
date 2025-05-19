@@ -2,13 +2,13 @@
 title: Secure your Cloudflare Tunnel with Authentik
 description: Configure Authentik as Zero Trust IdP for Cloudflare Tunnel.
 date: 2024-09-04
-categories: 
-  - selfhosting
-  - security
-tags: 
-  - docker
-  - cloudflare
+categories:
+  - Security
+  - Zero Trust
+tags:
+  - cloudflare tunnel
   - authentik
+  - sso
 image:
   path: /assets/img/headers/2024-09-04-cloudflare-tunnel-authentik.jpg
   alt: Photo by Markus Spiske on Unsplash

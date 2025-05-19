@@ -3,11 +3,10 @@ title: Connecting selfhosted apps to Tailscale with TSDProxy
 description: Learn how to easily connect your self-hosted applications to your Tailscale network with TSDProxy, simplifying access and management within your tailnet.
 date: 2025-01-25
 categories:
-  - selfhosting
-  - network
+  - Networking
+  - Reverse Proxy
 tags:
   - tailscale
-  - docker
 image:
   path: /assets/img/headers/2025-01-25-tsdproxy-tailscale-apps.jpg
   alt: Photo by Jordan Harrison on Unsplash

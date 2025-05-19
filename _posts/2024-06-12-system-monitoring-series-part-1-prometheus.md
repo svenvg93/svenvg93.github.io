@@ -2,12 +2,14 @@
 title: System Monitoring Series Part 1 | Host & Container Monitoring with Prometheus
 description: In Part 1 of the System Monitoring series, learn how to set up performance monitoring for your systems and containers using Prometheus and Grafana.
 date: 2024-06-12
-categories: 
-  - selfhosting
-  - monitoring
-tags: 
+series: Monitoring
+categories:
+  - Monitoring
+  - Metrics
+tags:
   - docker
-  - monitoring
+  - prometheus
+  - grafana
 image:
   path: /assets/img/headers/2024-06-12-system-monitoring-series-part-1-prometheus.jpg
   alt: Photo by Brian Lundquist on Unsplash

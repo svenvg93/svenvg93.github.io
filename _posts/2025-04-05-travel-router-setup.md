@@ -3,9 +3,10 @@ title: Setting Up Your Travel Router | Secure and Reliable Internet Anywhere
 description: Learn how to set up your travel router for secure and reliable internet on the go. Stay connected anywhere!
 date: 2025-04-05
 categories:
-  - network
-tags: 
-  - gl-inet
+  - Networking
+  - Router
+tags:
+  - travel router
 image:
   path: /assets/img/headers/2025-04-05-travel-router-setup.jpg
   alt: Photo by Markus Spiske on Unsplash

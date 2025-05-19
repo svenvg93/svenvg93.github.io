@@ -2,12 +2,14 @@
 title: Traefik Series Part 2 | Using Let’s Encrypt DNS-01 Challenge with Cloudflare
 description: In Part 2 of the Traefik series, learn how to obtain SSL certificates for your services using the Cloudflare DNS-01 challenge with Let’s Encrypt.
 date: 2024-05-22
-categories: 
-  - selfhosting
-  - traefik
-tags: 
-  - traefik
+series: Traefik
+categories:
+  - Networking
+  - Reverse Proxy
+tags:
+  - lets encrypt
   - cloudflare
+  - traefik
 image:
   path: /assets/img/headers/2024-05-22-traefik-series-part-2-dns01-cloudflare.jpg
   alt: Photo by Prince Adufah on Unsplash

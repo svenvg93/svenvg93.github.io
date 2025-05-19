@@ -2,12 +2,12 @@
 title: Setup ntfy for selfhosted notifications
 description: Selfhosted notifications for you homelab with ntfy & Cloudflare.
 date: 2024-10-01 09:00:00 +0200
-categories: 
-  - selfhosting
-tags: 
-  - docker
-  - cloudflare
+categories:
+  - Self-Hosting
+tags:
+  - ntfy
   - notifications
+  - docker
 image:
   path: /assets/img/headers/2024-10-01-setup-ntfy-selfhosted.jpg
   alt: Photo by Jamie Street on Unsplash

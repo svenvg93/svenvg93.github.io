@@ -3,10 +3,12 @@ title: Automating Dependabot for Docker Compose
 description: Keep your Docker Compose dependencies secure and up to date by automating Dependabot configuration with a simple Bash script and GitHub Actions.
 date: 2025-05-12
 categories:
-  - homelab
-  - automation
+  - DevOps
+  - CI/CD
 tags:
-  - github
+  - dependabot
+  - docker
+  - github actions
 image:
   path: /assets/img/headers/2025-05-12-dependabot-docker-compose.jpg
   alt: Photo by Markus Winkler on Unsplash
@@ -81,7 +83,7 @@ When you run the script using `./generate-dependabot.sh`, it will create (or upd
 
 ## Github Actions
 
-To keep your `dependabot.yml` up to date automatically, we can use a GitHub Action. Instead of manually running the script every time a `docker-compose.yml` is added or removed, this workflow monitors changes and creates a pull request when an update is needed. It ensures your configuration always reflects the current state of your project — hands-free.
+To keep your `dependabot.yml` up to date automatically, we can use a GitHub Action. Instead of manually running the script every time something is changed , this workflow will run the script above on every push to the repository and creates a pull request when an update is needed. It ensures your configuration always reflects the current state of your project - hands-free.
 
 
 ### Create the workflow file

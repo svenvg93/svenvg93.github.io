@@ -3,11 +3,10 @@ title: Selfhost your website analytics with Umami
 description: Learn how to self-host your website analytics using Umami, a privacy-focused and open-source analytics platform.
 date: 2025-01-29
 categories:
-  - selfhosting
-  - analytics
+  - Analytics
 tags:
-  - cloudflare
-  - docker
+  - umami
+  - web analytics
 image:
   path: /assets/img/headers/2025-01-29-selfhost-umami-analytics.jpg
   alt: Photo by Luke Chesser on Unsplash

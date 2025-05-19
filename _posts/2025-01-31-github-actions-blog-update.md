@@ -2,13 +2,13 @@
 title: How I use GitHub Actions to update my blog daily
 description: A step-by-step guide on automating the deployment of your blog using GitHub Actions for continuous publishing.
 date: 2025-01-31
-categories: 
-  - hosting
-  - cloud
-tags: 
-  - cloudflare
-  - github
+categories:
+  - DevOps
+  - CI/CD
+tags:
+  - github actions
   - jekyll
+  - cloudflare pages
 image:
   path: /assets/img/headers/2025-01-31-github-actions-blog-update.jpg
   alt: Photo by Ilya Pavlov on Unsplash
