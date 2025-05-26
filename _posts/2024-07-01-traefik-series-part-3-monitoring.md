@@ -2,7 +2,6 @@
 title: Traefik Series Part 3 | Monitoring with Grafana, Prometheus, and Loki
 description: In Part 3 of the Traefik series, learn how to monitor your Traefik instance’s performance using Prometheus, Loki, and Grafana.
 date: 2024-07-01
-series: Traefik
 categories:
   - Networking
   - Reverse Proxy

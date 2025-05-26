@@ -2,7 +2,6 @@
 title: Ansible Series Part 1 | Initial Setup
 description: Getting started with Ansible — from installation to your first automated task.
 date: 2025-05-15
-series: Ansible
 categories:
   - Automation
 tags:
