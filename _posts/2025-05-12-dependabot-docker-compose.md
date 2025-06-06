@@ -47,7 +47,7 @@ updates:
 YAML
 
 # Find and sort all docker-compose.yml directories
-find . -name 'docker-compose.yml' -print0 \
+find . -regex '.*/\(docker-\)?compose\(-[\w]+\)?\(?>\.[\w-]+\)?\.ya?ml' -print0 \
   | xargs -0 -n1 dirname \
   | sed 's|^\./||' \
   | sort \
