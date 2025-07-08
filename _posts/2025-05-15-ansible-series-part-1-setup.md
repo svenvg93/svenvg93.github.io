@@ -76,7 +76,9 @@ homelab-ansible/
 └── README.md
 ```
 
-### Create `ansible.cfg`
+### Create the ansibile configuration file
+
+The `ansible.cfg` file is typically located either in your home directory or in the `/etc/ansible` directory.
 
 ```ini
 [defaults]
@@ -94,7 +96,7 @@ This configuration:
 
 ### Define Your Inventory
 
-Create a static inventory file to list your homelab machines:
+Create a static inventory file to list your homelab machines. This file is typically placed in your current working directory, alongside your playbooks and roles in the inventory folder
 
 ```yaml
 all:
@@ -124,7 +126,9 @@ Each machine should return `pong` if SSH and the inventory are set up correctly.
 
 ## First Playbook: Install htop
 
-Let’s write a simple playbook to install a package on all your homelab servers.
+Let's create a simple Ansible playbook to install a package (in this case, `htop`) on all your homelab servers. It's a good practice to save your playbooks in a dedicated playbooks/ directory. If you don't have this folder yet, you can create it.
+
+Save the following content as `playbooks/install-htop.yml`:
 
 ```yaml
 - name: Install htop on homelab servers

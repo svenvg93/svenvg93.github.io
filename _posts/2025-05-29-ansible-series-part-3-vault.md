@@ -49,24 +49,96 @@ Then save and close the editor. The file is now encrypted and safe to commit (if
 You can now use the secret just like any other variable:
 
 ```yaml
-- name: Authenticate with Tailscale
-  ansible.builtin.command: >
-    tailscale up --authkey {{ tailscale_auth_key }}
-```
-{: file="playbooks/tailscale.yml" }
+---
+- name: Check if tailscaled service is running
+  ansible.builtin.systemd:
+    name: tailscaled
+  register: tailscaled_service
+  changed_when: false
+  failed_when: false
 
-Ansible will automatically load variables from `group_vars/`.
+- name: Skip Tailscale Setup
+  ansible.builtin.meta: end_host
+  when: tailscaled_service.status.ActiveState == "active"
+
+- name: Check if Tailscale is installed
+  ansible.builtin.stat:
+    path: /usr/sbin/tailscale
+  register: tailscale_installed
+
+- name: Download Tailscale install script
+  ansible.builtin.get_url:
+    url: "{{ tailscale_install_url }}"
+    dest: /tmp/tailscale-install.sh
+    mode: '0755'
+  when: not tailscale_installed.stat.exists
+
+- name: Run Tailscale install script
+  ansible.builtin.command: /tmp/tailscale-install.sh
+  when: not tailscale_installed.stat.exists
+  changed_when: true
+  notify: Restart tailscaled
+
+- name: Ensure tailscaled is enabled and started
+  ansible.builtin.systemd:
+    name: tailscaled
+    enabled: true
+    state: started
+
+- name: Check Tailscale status
+  ansible.builtin.command: tailscale status
+  register: tailscale_status
+  changed_when: false
+  failed_when: false
+  when: tailscale_installed.stat.exists
+
+# The Tailscale auth key should be stored in an encrypted vault:
+# tailscale_auth_key: "tskey-YOUR_KEY_HERE"
+
+- name: Authenticate with Tailscale if logged out and auth key is provided
+  ansible.builtin.command: >
+    tailscale up --authkey={{ tailscale_auth_key }}
+  when:
+    - tailscale_auth_key is defined
+    - tailscale_auth_key | length > 0
+    - "'Logged out.' in tailscale_status.stdout"
+  changed_when: true
+
+- name: Enable Tailscale SSH on the host
+  ansible.builtin.command: tailscale up --ssh
+  when: tailscale_enable_ssh and tailscale_auth_key is defined and tailscale_installed.stat.exists
+  changed_when: true
+  tags:
+    - tailscale_ssh
+```
+{: file="task/main.yml" }
+
 
 ## Run the Playbook with Vault
 
-Once you've encrypted your secrets with Ansible Vault, you can run your playbook securely by providing the vault password at runtime:
+In your playbook you need to reference where the vault file can be found.
+
+```yaml
+---
+# Enroll hosts into Tailscale network.
+- name: Enroll hosts into Tailscale
+  hosts: all
+  become: true
+  vars_files:
+    - ../group_vars/all/vault.yml
+  gather_facts: true
+  roles:
+    - tailscale
+```
+{: file="playbook/tailscale.yml" }
+
+Once you’ve encrypted your secrets with Ansible Vault, you can run your playbook securely by providing the vault password at runtime:
 
 ```bash
 ansible-playbook playbooks/tailscale.yml --ask-vault-pass
 ```
 
 This command will prompt you for the vault password before executing the playbook, ensuring your secrets are decrypted only when needed.
-
 
 ## Editing or Updating the Vault
 
