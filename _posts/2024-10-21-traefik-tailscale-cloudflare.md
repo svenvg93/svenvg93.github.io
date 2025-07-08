@@ -138,7 +138,7 @@ volumes:
 
 > Don't forget to change **traefik.ts.example.com** to your domain name.
 
-To store sensitive information and configuration values, create a .env file in the same directory as your docker-compose.yml`.
+To store sensitive information and configuration values, create a `.env` file in the same directory as your docker-compose.yml`.
 
 ```bash
 nano .env
@@ -153,7 +153,6 @@ TS_AUTHKEY=<Tailscale Auth Key>
 LE_EMAIL=<Your email for LetsEncrypt>
 DOMAIN=ts.example.com       # Your main domain
 SANS_DOMAIN=*.ts.example.com # Your wildcard domain
-
 ```
 
 This setup will allow you to securely access your applications hosted on your homelab through Tailscale, while Traefik handles routing and SSL termination.

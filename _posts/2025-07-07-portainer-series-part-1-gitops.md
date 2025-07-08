@@ -7,7 +7,6 @@ categories:
   - CI/CD
 tags:
   - docker
-  - 
 image:
   path: /assets/img/headers/2025-07-07-portainer-series-part-1-gitops.jpg
   alt: Photo by CHUTTERSNAP on Unsplash
