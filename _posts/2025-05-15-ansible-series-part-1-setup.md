@@ -6,6 +6,9 @@ categories:
   - Automation
 tags:
   - ansible
+series:
+  - Ansible
+series_part: 1
 image:
   path: /assets/img/headers/2025-05-15-ansible-series-part-1-setup.jpg
   alt: Photo by Jake Walker on Unsplash

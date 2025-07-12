@@ -6,6 +6,9 @@ categories:
   - Automation
 tags:
   - ansible
+series:
+  - Ansible
+series_part: 2
 image:
   path: /assets/img/headers/2025-05-19-ansible-series-part-2-roles.jpg
   alt: Photo by Gabriel Heinzer on Unsplash

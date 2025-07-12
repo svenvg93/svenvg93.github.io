@@ -1,7 +1,7 @@
 ---
 # the default layout is 'page'
 icon: fas fa-info-circle
-order: 7
+order: 5
 ---
 
 Welcome to my corner of the internet! I'm Sven, A network designer, a HomeLab enthusiast and full time nerd. This blog is where I share my journey, blending professional insights with personal homelab adventures. Here, you’ll find lessons learned, challenges faced, and solutions uncovered from my tech projects.

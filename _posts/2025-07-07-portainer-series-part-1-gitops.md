@@ -7,6 +7,9 @@ categories:
   - CI/CD
 tags:
   - docker
+series:
+  - Portainer
+series_part: 1
 image:
   path: /assets/img/headers/2025-07-07-portainer-series-part-1-gitops.jpg
   alt: Photo by CHUTTERSNAP on Unsplash
@@ -23,7 +26,32 @@ Container orchestration can quickly become complex as your infrastructure grows.
 
 
 ## Install Portainer
-The first step is to install Portainer on the host where you plan to run your Docker Compose stacks — simply follow the installation guide on the official [Portainer documentation](https://docs.portainer.io/start/install-ce/server/docker/linux).
+The first step is to install Portainer on the host where you plan to manage your Docker Compose stacks. You can use the following Docker Compose snippet to get started:
+
+```yaml
+services:
+  portainer:
+    image: portainer/portainer-ee:2.31.3
+    container_name: portainer
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Amsterdam
+      PUID: 1000
+      PGID: 1000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer:/data
+    ports:
+    - 8000:8000
+    - 9443:9443
+volumes:
+  portainer:
+    name: portainer
+```
+{: file='docker-compose.yml'}
+
+> In this series, I’m using the Enterprise Edition of Portainer to unlock all the necessary features. You can request your free 3-node license here: https://www.portainer.io/take-3
+{: .prompt-tip }
 
 ## Create Github Access Token
 To grant Portainer access to your GitHub repository, you’ll need a Personal Access Token:

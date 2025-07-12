@@ -9,6 +9,9 @@ tags:
   - docker
   - prometheus
   - grafana
+series:
+  - System Monitoring
+series_part: 1
 image:
   path: /assets/img/headers/2024-06-12-system-monitoring-series-part-1-prometheus.jpg
   alt: Photo by Brian Lundquist on Unsplash
