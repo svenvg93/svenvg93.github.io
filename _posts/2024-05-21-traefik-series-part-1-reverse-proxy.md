@@ -1,7 +1,7 @@
 ---
 title: Traefik Series Part 1 | Setting up a Reverse Proxy with Docker and Let’s Encrypt
 description: In Part 1 of the Traefik series, learn how to configure Traefik as a secure reverse proxy for your services using Docker and Let’s Encrypt.
-type: post
+date: 2024-05-21
 categories:
   - Networking
   - Reverse Proxy
@@ -9,9 +9,6 @@ tags:
   - traefik
   - docker
   - lets encrypt
-series:
-  - Traefik
-series_part: 1
 image:
   path: /assets/img/headers/2024-05-21-traefik-series-part-1-reverse-proxy.jpg
   alt: Photo by Reid Naaykens on Unsplash

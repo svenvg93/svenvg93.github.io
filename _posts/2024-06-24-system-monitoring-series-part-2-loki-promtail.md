@@ -9,9 +9,6 @@ tags:
   - docker
   - grafana
   - loki
-series:
-  - System Monitoring
-series_part: 2
 image:
   path: /assets/img/headers/2024-06-24-system-monitoring-series-part-2-loki-promtail.jpg
   alt: Photo by Mr Cup / Fabien Barral on Unsplash

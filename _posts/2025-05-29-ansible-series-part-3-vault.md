@@ -7,9 +7,6 @@ categories:
 tags:
   - ansible
   - secrets
-series:
-  - Ansible
-series_part: 3
 image:
   path: /assets/img/headers/2025-05-29-ansible-series-part-3-vault.jpg
   alt: Photo by Markus Spiske on Unsplash

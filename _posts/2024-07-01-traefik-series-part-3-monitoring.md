@@ -9,9 +9,6 @@ tags:
   - traefik
   - metrics
   - logging
-series:
-  - Traefik
-series_part: 3
 image:
   path: /assets/img/headers/2024-07-01-traefik-series-part-3-monitoring.jpg
   alt: Photo by Berkin Üregen on Unsplash

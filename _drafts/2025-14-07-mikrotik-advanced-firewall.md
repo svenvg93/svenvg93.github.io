@@ -1,14 +1,16 @@
 ---
-title:
+title: Advanced Firewall Rules on Mikrotik
 description:
-date:
+date: 2025-07-01
 categories:
-  -
+  - Networking
+  - Router
 tags:
-  -
+  - mikrotik
+  - firewall
 image:
-  path: /assets/img/headers/.jpg
-  alt:
+  path: /assets/img/headers/2025-14-07-mikrotik-advanced-firewall.jpg
+  alt: Photo by Xavier Cee on Unsplash
 ---
 
 

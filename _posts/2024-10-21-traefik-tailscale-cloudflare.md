@@ -1,5 +1,5 @@
 ---
-title: Securing Your Homelab with Tailscale and Cloudflare Wildcard DNS
+title: Secure Your Homelab with Tailscale & Cloudflare
 description: Use your domain name to access your homelab via Tailscale.
 date: 2024-10-21
 categories:
@@ -11,7 +11,7 @@ tags:
   - cloudflare
 image:
   path: /assets/img/headers/2024-10-21-traefik-tailscale-cloudflare.jpg
-  alt: Photo by Taylor Vick on Unsplash
+  alt: Photo by Yancy Min on Unsplash
 ---
 There are instances when you want to ensure that only you have remote access to specific areas of your homelab. In this post, we’ll explore how to leverage Tailscale, Traefik, and Cloudflare to establish a private and secure connection to your homelab services.
 
